@@ -1,0 +1,8 @@
+{
+  "name": "quarenDevs",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

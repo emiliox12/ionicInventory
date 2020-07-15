@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="inventory"></ion-back-button>
+      </ion-buttons>
+      <ion-button slot="end" (click)="onUpdateProduct()">
+        <ion-icon name="paper-plane-outline"></ion-icon>
+      </ion-button>
+      <ion-button slot="end" (click)="onDeleteProduct()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    <ion-title>{{ product.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" >
+          <ion-label slot="start" >Name: </ion-label>
+          <ion-input
+          [readonly]="!editables.name"
+          [(ngModel)]="product.name"
+          (ionBlur)="blur()"
+          [ngClass]="{selected: editables.name}"
+          ></ion-input>
+        <ion-icon slot="end" name="pencil" (click)="onEdit('name')"></ion-icon>
+        </ion-item>
+        <hr>
+        <ion-item lines="none">
+          <ion-label>
+            Description: 
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-textarea
+          [readonly]="!editables.desc"
+          [(ngModel)]="product.description"
+          (ionBlur)="blur()"
+          [ngClass]="{selected: editables.desc}"
+          ></ion-textarea>
+          <ion-icon slot="end" name="pencil" (click)="onEdit('desc')"></ion-icon>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>Quantity:</ion-label>
+          <ion-input
+          type="number"
+          [readonly]="!editables.quantity"
+          [(ngModel)]="product.size"
+          (ionBlur)="blur()"
+          [ngClass]="{selected: editables.quantity}"
+          ></ion-input>
+          <ion-icon slot="end" name="pencil" (click)="onEdit('quantity')"></ion-icon>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>Unitary price:</ion-label>
+          <ion-input
+          type="number"
+          [readonly]="!editables.UP"
+          [(ngModel)]="product.unitaryPrice"
+          (ionBlur)="blur()"
+          [ngClass]="{selected: editables.UP}"
+          ></ion-input>
+          <ion-icon slot="end" name="pencil" (click)="onEdit('UP')"></ion-icon>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            Stats: 
+          </ion-label>
+        </ion-item>
+        <div class="square">
+          <ion-img src="https://www.pop.org/wp-content/uploads/2020/03/GettyImages-1157569047-scaled.jpg"
+          ></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
